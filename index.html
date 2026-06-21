@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CHTR Mobile · Get Connected</title>
+<meta name="description" content="Apply for an MTN deal through CHTR Mobile. Official MTN reseller based in Durban. One of our agents will contact you within 24 hours." />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f0f1a;
+    --navy-card: #1c1c35;
+    --navy-header: #13132b;
+    --indigo: #4f46e5;
+    --indigo-hover: #4338ca;
+    --indigo-glow: rgba(79,70,229,0.15);
+    --indigo-border: rgba(79,70,229,0.28);
+    --indigo-soft: rgba(79,70,229,0.18);
+    --text-primary: rgba(255,255,255,0.88);
+    --text-secondary: rgba(255,255,255,0.45);
+    --text-hint: rgba(255,255,255,0.25);
+    --border-subtle: rgba(255,255,255,0.07);
+    --input-bg: #13132b;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--navy);
+    color: var(--text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy-header);
+    padding: 15px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 0.5px solid var(--indigo-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo-mark {
+    width: 32px; height: 32px;
+    background: var(--indigo);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: #fff;
+    flex-shrink: 0;
+  }
+
+  .brand { line-height: 1.2; }
+  .brand-name { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  .brand-sub { color: var(--text-secondary); font-size: 11px; font-weight: 400; margin-top: 1px; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy-header);
+    padding: 36px 24px 52px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--indigo-border);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--indigo-soft);
+    color: #a5b4fc;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    border: 0.5px solid var(--indigo-border);
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Form card ── */
+  .form-wrap {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 16px 40px;
+  }
+
+  .form-card {
+    background: var(--navy-card);
+    border-radius: 14px;
+    border: 0.5px solid var(--indigo-border);
+    padding: 28px 24px;
+    margin-top: -24px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-hint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--indigo-border);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .form-row.full { grid-template-columns: 1fr; }
+
+  @media (max-width: 420px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+
+  .field label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .field input,
+  .field select {
+    height: 40px;
+    border: 0.5px solid var(--indigo-border);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    padding: 0 12px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 100%;
+  }
+
+  .field input::placeholder { color: var(--text-hint); }
+
+  .field select {
+    appearance: none;
+    -webkit-appearance: none;
+    color: var(--text-secondary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 32px;
+    cursor: pointer;
+  }
+
+  .field select option { background: #1c1c35; color: rgba(255,255,255,0.88); }
+  .field select optgroup { color: rgba(255,255,255,0.45); font-size: 12px; }
+
+  .field input:focus,
+  .field select:focus {
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 3px var(--indigo-glow);
+  }
+
+  .field input.error,
+  .field select.error { border-color: #ef4444; }
+
+  .field-error {
+    font-size: 11px;
+    color: #f87171;
+    margin-top: 2px;
+    display: none;
+  }
+
+  .field-error.visible { display: block; }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--indigo-border);
+    margin: 20px 0;
+  }
+
+  /* ── Submit button ── */
+  .submit-btn {
+    width: 100%;
+    height: 44px;
+    background: var(--indigo);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.15s, opacity 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .submit-btn:hover { background: var(--indigo-hover); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .consent-note {
+    font-size: 11px;
+    color: var(--text-hint);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── Error banner ── */
+  .error-banner {
+    display: none;
+    background: rgba(239,68,68,0.12);
+    border: 0.5px solid rgba(239,68,68,0.35);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #fca5a5;
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .error-banner.visible { display: block; }
+
+  /* ── Success card ── */
+  .success-card {
+    display: none;
+    background: var(--navy-card);
+    border-radius: 14px;
+    border: 0.5px solid rgba(34,197,94,0.3);
+    padding: 40px 24px;
+    margin-top: -24px;
+    text-align: center;
+  }
+
+  .success-card.visible { display: block; }
+
+  .success-icon {
+    width: 52px; height: 52px;
+    background: rgba(34,197,94,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    color: #4ade80;
+  }
+
+  .success-card h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .success-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Trust row ── */
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 8px 16px 32px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-hint);
+  }
+
+  .trust-icon {
+    width: 14px; height: 14px;
+    color: var(--indigo);
+    flex-shrink: 0;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-hint);
+    padding-bottom: 32px;
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-mark">CE</div>
+  <div class="brand">
+    <div class="brand-name">CHTR Mobile</div>
+    <div class="brand-sub">Powered by MTN</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Official MTN reseller · Durban
+  </div>
+  <h1>Get connected today</h1>
+  <p>Fill in your details and one of our agents<br>will contact you within 24 hours.</p>
+</section>
+
+<div class="form-wrap">
+
+  <!-- Form card -->
+  <div class="form-card" id="form-card">
+
+    <div class="section-label">Personal details</div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="title">Title</label>
+        <select id="title">
+          <option value="">Select</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Ms</option>
+          <option value="Miss">Miss</option>
+          <option value="Dr">Dr</option>
+          <option value="Prof">Prof</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="first_name">First name <span style="color:#f87171">*</span></label>
+        <input type="text" id="first_name" placeholder="e.g. Thabo" autocomplete="given-name" />
+        <span class="field-error" id="err-first_name">Please enter your first name</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="surname">Surname <span style="color:#f87171">*</span></label>
+        <input type="text" id="surname" placeholder="e.g. Nkosi" autocomplete="family-name" />
+        <span class="field-error" id="err-surname">Please enter your surname</span>
+      </div>
+      <div class="field">
+        <label for="mobile">Mobile number <span style="color:#f87171">*</span></label>
+        <input type="tel" id="mobile" placeholder="082 000 0000" autocomplete="tel" />
+        <span class="field-error" id="err-mobile">Please enter a valid mobile number</span>
+      </div>
+    </div>
+
+    <div class="form-row full">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="thabo@email.com" autocomplete="email" />
+        <span class="field-error" id="err-email">Please enter a valid email address</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="section-label">Deal interest</div>
+
+    <div class="form-row full">
+      <div class="field">
+        <label for="product">MTN package</label>
+        <select id="product">
+          <option value="">Select a package</option>
+          <option value="MTN Bonus Data Deal · R99/month">MTN Bonus Data Deal · R99/month</option>
+          <option value="MTN Data Deal · R149/month">MTN Data Deal · R149/month</option>
+          <option value="MTN Mega Data Deal · R299/month">MTN Mega Data Deal · R299/month</option>
+          <option value="MTN Mega Talk & Data Deal · R429/month">MTN Mega Talk &amp; Data Deal · R429/month</option>
+          <option value="MTN Talk & Data & SMS Deal · R159/month">MTN Talk &amp; Data &amp; SMS Deal · R159/month</option>
+          <option value="MTN Talk & Data Deal · R199/month">MTN Talk &amp; Data Deal · R199/month</option>
+          <option value="Not sure yet">Not sure yet — agent can advise</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Submit application
+    </button>
+
+    <p class="consent-note">By submitting you agree to be contacted by a CHTR Mobile agent. Your information is kept private and will not be shared.</p>
+
+    <div class="error-banner" id="error-banner">
+      Something went wrong. Please try again or call us directly.
+    </div>
+  </div>
+
+  <!-- Success card -->
+  <div class="success-card" id="success-card">
+    <div class="success-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 id="success-heading">Application received</h2>
+    <p id="success-body">One of our agents will call you within 24 hours to walk you through your options.</p>
+  </div>
+
+</div>
+
+<!-- Trust row -->
+<div class="trust-row">
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Secure form
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    24hr response
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    POPIA compliant
+  </div>
+</div>
+
+<p class="footer-note">© 2026 CHTR Mobile · Powered by MTN</p>
+
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+  const SUPABASE_URL = 'YOUR_SUPABASE_URL'
+  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+  function validate() {
+    let valid = true
+
+    const fields = [
+      { id: 'first_name', check: v => v.trim().length > 0 },
+      { id: 'surname',    check: v => v.trim().length > 0 },
+      { id: 'mobile',     check: v => /^0[6-8][0-9]{8}$/.test(v.replace(/\s/g, '')) },
+      { id: 'email',      check: v => v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    ]
+
+    fields.forEach(({ id, check }) => {
+      const el = document.getElementById(id)
+      const err = document.getElementById('err-' + id)
+      const val = el.value
+      if (!check(val)) {
+        el.classList.add('error')
+        if (err) err.classList.add('visible')
+        valid = false
+      } else {
+        el.classList.remove('error')
+        if (err) err.classList.remove('visible')
+      }
+    })
+
+    return valid
+  }
+
+  window.handleSubmit = async function () {
+    document.getElementById('error-banner').classList.remove('visible')
+
+    if (!validate()) return
+
+    const btn = document.getElementById('submit-btn')
+    btn.disabled = true
+    btn.innerHTML = `
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+      Submitting…`
+
+    const firstName = document.getElementById('first_name').value.trim()
+
+    const { error } = await supabase.from('landing_leads').insert({
+      title:            document.getElementById('title').value || null,
+      first_name:       firstName,
+      surname:          document.getElementById('surname').value.trim(),
+      mobile:           document.getElementById('mobile').value.replace(/\s/g, ''),
+      email:            document.getElementById('email').value.trim() || null,
+      product_interest: document.getElementById('product').value || null,
+    })
+
+    if (error) {
+      console.error(error)
+      btn.disabled = false
+      btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Submit application`
+      document.getElementById('error-banner').classList.add('visible')
+      return
+    }
+
+    document.getElementById('form-card').style.display = 'none'
+    const sc = document.getElementById('success-card')
+    sc.classList.add('visible')
+    document.getElementById('success-heading').textContent = `Thanks, ${firstName}`
+    document.getElementById('success-body').textContent = `We've received your application. One of our agents will call you within 24 hours to walk you through your options.`
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+</script>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+</body>
+</html>
